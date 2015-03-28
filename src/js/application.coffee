@@ -41,7 +41,10 @@ jQuery ->
     streetViewControl : false
     mapTypeControl: false
     overviewMapControl: false
-    styles: [{ 'featureType': 'all', 'stylers': [{ 'saturation': -100 }, { 'gamma': 0.5 }] }]
+    styles: [
+      { 'featureType': 'all', 'stylers': [{ 'saturation': -100 }, { 'gamma': 0.5 }] },
+      { 'featureType': 'poi', 'elementType': 'labels', 'stylers': [{ 'visibility': 'off' }]}
+    ]
 
   map.addMarker
     lat: 55.049123
