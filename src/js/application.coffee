@@ -16,12 +16,15 @@ jQuery ->
     $('html,body').animate { scrollTop: scrollTo },
       duration: 800
 
-  $(window).scroll ->
-    $('.js-fixed').css
-      top: window.scrollY
+
+  # Fixed header
+  unless isMobile()
+    $(window).scroll ->
+      $('.js-fixed').css
+        top: window.scrollY
 
 
-  # Hide for mobile devices
+  # Hide video for mobile devices
   unless isMobile()
     $('.js-home-video').show()
 
