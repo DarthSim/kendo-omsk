@@ -1,3 +1,6 @@
+window.isMobile = ->
+  /(mobile|phone|tablet|android|ipad|ipod|symbian)/i.test(navigator.userAgent)
+
 jQuery ->
   $('.js-year').text new Date().getFullYear()
 
@@ -17,6 +20,13 @@ jQuery ->
     $('.js-fixed').css
       top: window.scrollY
 
+
+  # Hide for mobile devices
+  unless isMobile()
+    $('.js-home-video').show()
+
+
+  # Map in contacts
   map = new GMaps
     el: '#map'
     lat: 55.049123
