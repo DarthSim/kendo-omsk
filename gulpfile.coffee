@@ -1,7 +1,7 @@
 gulp         = require 'gulp'
 gutil        = require 'gulp-util'
 gulpif       = require 'gulp-if'
-sass         = require 'gulp-ruby-sass'
+sass         = require 'gulp-sass'
 coffee       = require 'gulp-coffee'
 concat       = require 'gulp-concat'
 sourcemaps   = require 'gulp-sourcemaps'
@@ -12,8 +12,10 @@ gulp.task 'templates', ->
     .pipe(gulp.dest('release'))
 
 gulp.task 'css', ->
-  sass('src/css', { sourcemap: true })
+  gulp.src('src/css/*.sass')
+    .pipe(sourcemaps.init())
     .on('error', gutil.log)
+    .pipe(sass())
     .pipe(autoprefixer(
       browsers: ['last 2 versions']
       cascade: false

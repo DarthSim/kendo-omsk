@@ -130,17 +130,20 @@ h1, h2, h3
 @media (max-width: $screen-sm - 1px)
   .info-block-header
     background-image: none
+    padding: 30px
     &:after
       background-attachment: scroll
+    h2
+      font-size: 30px
 
-.info-block-header-kendo:after
-  background-image: url('../images/header_kendo.jpg')
+.info-block-header-federation:after
+  background-image: url('../images/header_federation.jpg')
 
-.info-block-header-iaido:after
-  background-image: url('../images/header_iaido.jpg')
+.info-block-header-novice:after
+  background-image: url('../images/header_novice.jpg')
 
-.info-block-header-kyudo:after
-  background-image: url('../images/header_kyudo.jpg')
+.info-block-header-schedule:after
+  background-image: url('../images/header_schedule.jpg')
 
 .info-block-header-contacts:after
   background-image: url('../images/header_contacts.jpg')
@@ -149,8 +152,20 @@ h1, h2, h3
   cursor: pointer
   width: 100%
 
-.schedule td
-  width: 14.3%
+.schedule-lg
+  td
+    width: 14.3%
+
+.schedule-sm
+  display: none
+  td
+    width: 50%
+
+@media (max-width: $screen-sm - 1px)
+  .schedule-lg
+    display: none
+  .schedule-sm
+    display: table
 
 .contacts
   margin-bottom: 30px
