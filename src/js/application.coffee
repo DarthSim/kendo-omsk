@@ -2,8 +2,6 @@ window.isMobile = ->
   /(mobile|phone|tablet|android|ipad|ipod|symbian)/i.test(navigator.userAgent)
 
 jQuery ->
-  $wrapper = $('.wrapper')
-
   $('.js-year').text new Date().getFullYear()
 
   # Smooth scrolling
@@ -13,12 +11,9 @@ jQuery ->
     e.preventDefault()
 
     href = $(this).attr('href')
-    scrollTo = if href == '#'
-      0
-    else
-      $(href).offset().top + $wrapper.scrollTop()
+    scrollTo = if href == '#' then 0 else $(href).offset().top
 
-    $wrapper.animate { scrollTop: scrollTo },
+    $('body').animate { scrollTop: scrollTo },
       duration: 800
 
 
@@ -27,11 +22,11 @@ jQuery ->
     $jsFixed = $('.js-fixed')
     $jsFixedBg = $('.js-fixed-bg')
 
-    $wrapper.scroll ->
+    $(window).scroll ->
       $jsFixed.css
-        top: $wrapper.scrollTop()
+        top: window.scrollY
       $jsFixedBg.css
-        'background-position-y': $wrapper.scrollTop()
+        'background-position-y': window.scrollY
 
 
   # Hide video for mobile devices
