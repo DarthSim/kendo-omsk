@@ -10,7 +10,9 @@
   <link rel="stylesheet" type="text/css" href="css/application.css">
   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
-<body data-spy="scroll" data-target=".navbar">
+<body>
+  <div class="wrapper" data-spy="scroll" data-target=".navbar">
+
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -42,7 +44,7 @@
     <div class="home-bg js-fixed">
       <video class="js-home-video" src="video/kendo_omsk.mp4" autoplay="autoplay" loop="loop"></video>
     </div>
-    <div class="home-overlay js-fixed"></div>
+    <div class="home-overlay js-fixed-bg"></div>
     <div class="home-shadow"></div>
     <div class="home-logo-block">
       <img class="home-logo" src="images/logo.png" />
@@ -256,5 +258,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="js/application.js"></script>
+
+  </div>
 </body>
 </html>
