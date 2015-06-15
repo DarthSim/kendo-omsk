@@ -6,14 +6,12 @@ jQuery ->
 
   # Smooth scrolling
   $('a[href^=#]').click (e) ->
-    return true if $(this).closest('.carousel').length
-
     e.preventDefault()
 
     href = $(this).attr('href')
     scrollTo = if href == '#' then 0 else $(href).offset().top
 
-    $('body').animate { scrollTop: scrollTo },
+    $('html,body').animate { scrollTop: scrollTo },
       duration: 800
 
 
