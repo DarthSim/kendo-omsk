@@ -18,13 +18,10 @@ jQuery ->
   # Fixed header
   unless isMobile()
     $jsFixed = $('.js-fixed')
-    $jsFixedBg = $('.js-fixed-bg')
 
     $(window).scroll ->
       $jsFixed.css
         top: window.scrollY
-      $jsFixedBg.css
-        'background-position-y': window.scrollY
 
 
   # Hide video for mobile devices
