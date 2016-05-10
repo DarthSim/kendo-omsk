@@ -32,8 +32,8 @@ jQuery ->
   # Map in contacts
   map = new GMaps
     el: '#map'
-    lat: 55.049123
-    lng: 73.261420
+    lat: 55.0494894
+    lng: 73.2628688
     zoom: 16
     scrollwheel: false
     zoomControl : false
