@@ -24,7 +24,7 @@ gulp.task 'css', ->
     .pipe(gulp.dest('release/css'))
 
 gulp.task 'js', ->
-  gulp.src(['src/js/vendor/**', 'src/js/**'])
+  gulp.src(['src/js/**'])
     .pipe(sourcemaps.init())
     .pipe(gulpif(/.+\.coffee$/, coffee().on('error', gutil.log)))
     .pipe(concat('application.js'))

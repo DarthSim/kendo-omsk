@@ -30,11 +30,10 @@ jQuery ->
 
 
   # Map in contacts
-  map = new GMaps
-    el: '#map'
-    lat: 55.0494894
-    lng: 73.2628688
+  map = new google.maps.Map $("#map").get(0),
     zoom: 16
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    center: new google.maps.LatLng(55.0494894, 73.2628688)
     scrollwheel: false
     zoomControl : false
     panControl : false
@@ -46,14 +45,19 @@ jQuery ->
       { 'featureType': 'poi', 'elementType': 'labels', 'stylers': [{ 'visibility': 'off' }]}
     ]
 
-  map.addMarker
-    lat: 55.0494894
-    lng: 73.2628688
+  marker = new google.maps.Marker
     title: 'Омская Областная Федерация Кендо'
-    infoWindow:
-      content: '<p><strong>Омская Областная Федерация Кендо</strong><br/>ул. Заводская, д.1</p>'
+    position: new google.maps.LatLng(55.0494894, 73.2628688)
+    map: map
+    draggable: false
     icon:
       url: 'images/map-marker.png'
       size: new google.maps.Size(22, 40)
       origin: new google.maps.Point(0, 0),
       anchor: new google.maps.Point(11, 40)
+
+  infowindow = new google.maps.InfoWindow
+    content: '<p><strong>Омская Областная Федерация Кендо</strong><br/>ул. Заводская, д.1</p>'
+
+  google.maps.event.addListener marker, 'click', () ->
+    infowindow.open map,marker
