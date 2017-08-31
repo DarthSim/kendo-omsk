@@ -28,15 +28,16 @@ jQuery ->
   unless isMobile()
     $('.js-home-video').show()
 
-
   # Map in contacts
-  lat = 55.0033046
-  lng = 73.3585915
+  lat = 55.00955
+  lng = 73.40535
 
   map = new google.maps.Map $("#map").get(0),
     zoom: 16
     mapTypeId: google.maps.MapTypeId.ROADMAP
-    center: new google.maps.LatLng(lat, lng)
+    center:
+      lat: lat
+      lng: lng
     scrollwheel: false
     zoomControl : false
     panControl : false
@@ -60,7 +61,7 @@ jQuery ->
       anchor: new google.maps.Point(11, 40)
 
   infowindow = new google.maps.InfoWindow
-    content: '<p><strong>Омская Областная Федерация Кендо</strong><br/>ул. 5 Армии, 12</p>'
+    content: '<p><strong>Омская Областная Федерация Кендо</strong><br/>8-я Восточная ул., 22</p>'
 
   google.maps.event.addListener marker, 'click', () ->
     infowindow.open map,marker
